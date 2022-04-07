@@ -1,0 +1,133 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+body{ 
+  /* The image used */
+  background-image: url("back2.jpg");
+  min-height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 1%;
+  position: auto;
+  background-attachment: fixed;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  margin-left: 35%;
+  margin-top: 4%;
+  max-width: 29%;
+  min-height: 60%;
+  padding: 1%;
+  background-color: white;
+}
+
+
+.con_for {
+  position: fixed;
+  margin-left: 35%;
+  margin-top: 7%;
+  max-width: 29%;
+  min-height: 0%;
+  padding: 1%;
+  background-color: white;
+}
+
+.title{
+  text-align: center;
+  font-size: 50px;
+}
+img{
+  float: left;
+  width: 12%;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=email]{
+  width: 100%;
+  padding: 4%;
+  margin-top: 2%;
+  margin-left: 0%;
+  margin-bottom: 4%;
+  margin-right: 0%;
+  border: none;
+  background: #f1f1f1;
+  font-size: 18px;
+}
+
+input[type=password], input[type=texts]{
+  width: 93%;
+  padding: 4%;
+  margin-top: 2%;
+  margin-left: 0%;
+  margin-bottom: 4%;
+  margin-right: 0%;
+  border: none;
+  background: #f1f1f1;
+  font-size: 18px;
+}
+
+.error{
+  color: red;
+}
+input[value]{
+  color: red;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.forget{
+  float: right;
+}
+
+
+#text {display:none;color:red}
+
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #00aaaa;
+  font-size: 20px;
+  color: white;
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+a{
+  color: blue;
+    text-decoration: none;
+
+}
+
+.ex1{
+  padding-bottom: 1%;
+}
+.ex2{
+  padding-top: 2%;
+}
+
+.btn button:disabled {
+  cursor: not-allowed;
+  background: #8f8b85 !important;
+  color: rgb(131, 120, 120) !important;
+}+

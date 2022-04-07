@@ -3,7 +3,12 @@
     $message="";
     if(count($_POST)>0) {
         $con = mysqli_connect('localhost','Root','leooffice','chaurasiya_ji') or die('Unable To connect');
-        $result = mysqli_query($con,"SELECT * FROM login_form WHERE email='" . $_POST["email"] . "' and pass = '". $_POST["pass"]."'");
+        $password=$_POST['pass'];
+        $pwd = md5($password);
+
+
+        $result = mysqli_query($con,"SELECT * FROM login_form WHERE email='" . $_POST["email"] . "' and pass = '". $pwd ."'");
+
         $row  = mysqli_fetch_array($result);
         if(is_array($row)) {
         $_SESSION["id"] = $row['id'];

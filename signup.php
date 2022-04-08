@@ -4,65 +4,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SignUp</title>
 <link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
-
-<?php
-
-$nameErr = $emailErr = $passErr = $cpassErr = "";
-$name = $email = $pass = $cpass = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-  if (empty($_POST["name"]))
-  {
-    $nameErr = "Required";
-  } 
-  else
-  {
-    $name = test_input($_POST["name"]);
-  }
-
-
-  if (empty($_POST["email"]))
-  {
-    $emailErr = "Required";
-  }
-  else
-  {
-    $email = test_input($_POST["email"]);
-  }
-    
-
-  if (empty($_POST["pass"])) {
-    $passErr = "Required";
-  }
-  else
-  {
-    $pass = test_input($_POST["pass"]);
-  }
-
-
-  if (empty($_POST["cpass"])) {
-    $cpassErr = "Gender is required";
-  }
-  else
-  {
-    $cpass = test_input($_POST["cpass"]);
-  }
-}
-
-function test_input($data)
-{
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  include_once('logincon.php');
-  return $data;
-}
-?>
-<body>
-
+<body oncontextmenu="return false">
   <form class="container" method="POST" name="myform" action="insert.php">
+    
     <h1 align="center">Signup</h1>
 
     <label for="name"><b>Name</b></label><span class="error">*<?php echo $nameErr;?></span>
@@ -74,23 +20,22 @@ function test_input($data)
 
 
     <label for="pass"><b>Password</b></label><span class="error">*<?php echo $passErr;?></span>
-    <input type="password" placeholder="Enter Password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}" title="Must contain at least one number and one uppercase and lowercase letter, and minimum 8 characters" spellcheck="false">
+    <input type="password" placeholder="Enter Password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}" title="" spellcheck="false">
+    <i class="far fa-eye" id="togglePassword" style="position: absolute; margin-top: 5%; margin-left: -6%; cursor: pointer;"></i>
 
-    <input type="checkbox" onclick="shpass()" title="Show Password">
+    <div class="pm">Password must have at least <b>one Number</b>, <b>one Uppercase</b> and <b>Lowercase</b> letter, and <b>Minimum 8 Characters</b></div>
 
 
     <label for="cpss"><b>Confirm Password</b></label><span class="error">*<?php echo $cpassErr;?></span>
     <input type="password" placeholder="Enter Confirm Password" name="cpass" id="cpass" spellcheck="false">
-
-    <input type="checkbox" onclick="shcpass()" title="Show Password">
-
+    <i class="far fa-eye" id="togglePassword2" style="position: absolute; margin-top: 5%; margin-left: -6%; cursor: pointer;"></i>
 
     <div class="ex1">
       <input type="checkbox" name="accept" id="accept" onchange="activateButton(this)">
       <label for="accept">I accept the all Terms & Conditions</label>
     </div>
 
-    <input class="btn" type="submit" name="submit" id="submit" disabled value="SignUp"/>
+    <button class="btn" type="submit" name="submit" id="submit" disabled>SignUp</button>
 
     <div class="ex2">Already have an account? <a href="login.php">Login here</a></div>
 
@@ -117,28 +62,27 @@ function test_input($data)
 
 
 
-function shpass() {
-  var x = document.getElementById("pass");
-  if (x.type === "password") {
-    x.type = "texts";
-  } else {
-    x.type = "password";
-  }
-}
-
-function shcpass() {
-  var x = document.getElementById("cpass");
-  if (x.type === "password") {
-    x.type = "texts";
-  } else {
-    x.type = "password";
-  }
-}
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#pass');
+ 
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = pass.getAttribute('type') === 'password' ? 'texts' : 'password';
+    pass.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+  const togglePassword2 = document.querySelector('#togglePassword2');
+  const cpass = document.querySelector('#cpass');
+ 
+  togglePassword2.addEventListener('click', function (f) {
+    // toggle the type attribute
+    const type = cpass.getAttribute('type') === 'password' ? 'texts' : 'password';
+    cpass.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
 
 </script>
-
-
-
-
 </body>
 </html>

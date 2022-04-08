@@ -32,7 +32,7 @@ if (!isset($_SESSION['id'])) {
 
 </head>
 
-<body style="background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);">
+<body style="background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%)" oncontextmenu="return false">
    <div class="container mt-2">
       <div class="row">
          <div class="col-md-12 mt-1 mb-1">
@@ -51,7 +51,7 @@ if (!isset($_SESSION['id'])) {
                         <th style="border-right: solid floralwhite 4px;">Gender</th>
                         <th style="border-right: solid floralwhite 4px;">DoB</th>
                         <th style="border-right: solid floralwhite 4px;">Comment</th>
-                        <th style="background-image: none;">Action</th>
+                        <th style="background-image: none; cursor: none;">Action</th>
                      </tr>
                </thead>
                <tbody>
@@ -225,6 +225,25 @@ if (!isset($_SESSION['id'])) {
             });
         });
     });
+
+
+
+
+
+    //courtesy of BoogieJack.com
+function killCopy(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=killCopy
+document.onclick=reEnable
+}
+
+
  </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

@@ -18,6 +18,9 @@ body{
   background-size: 1%;
   position: auto;
   background-attachment: fixed;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 /* Add styles to the form container */
@@ -30,7 +33,6 @@ body{
   padding: 1%;
   background-color: white;
 }
-
 
 .con_for {
   position: fixed;
@@ -55,7 +57,7 @@ img{
 /* Full-width input fields */
 input[type=text], input[type=email]{
   width: 100%;
-  padding: 4%;
+  padding: 3%;
   margin-top: 2%;
   margin-left: 0%;
   margin-bottom: 4%;
@@ -66,15 +68,26 @@ input[type=text], input[type=email]{
 }
 
 input[type=password], input[type=texts]{
-  width: 93%;
-  padding: 4%;
+  /*width: 92.899999999%;*/
+  width: 100%;
+  padding: 3%;
   margin-top: 2%;
   margin-left: 0%;
-  margin-bottom: 4%;
+  margin-bottom: 2%;
   margin-right: 0%;
   border: none;
   background: #f1f1f1;
   font-size: 18px;
+}
+
+.pm{
+  font-size: 14px;
+  text-align: justify;
+  color: skyblue;
+  word-spacing: 1px;
+  /*word-break: break-all;*/
+  padding: 0%;
+  margin: 0%;
 }
 
 .error{
@@ -126,8 +139,9 @@ a{
   padding-top: 2%;
 }
 
-.btn button:disabled {
+.btn:disabled {
   cursor: not-allowed;
   background: #8f8b85 !important;
   color: rgb(131, 120, 120) !important;
-}+
+
+}

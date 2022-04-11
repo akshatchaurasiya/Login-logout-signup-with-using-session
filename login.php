@@ -32,8 +32,8 @@
 </head>
 <body oncontextmenu="return false">
 
-  <form action="" method="post" class="container">
-    <h1 align="center">Login</h1>
+  <form action="" method="post" class="container2">
+    <h1>Login</h1>
 
     <center><label style="color: red;">
       <?php if($message!="") { echo $message; } ?>

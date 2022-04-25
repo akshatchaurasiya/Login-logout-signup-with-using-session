@@ -40,9 +40,9 @@
       </label></center>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" required>
+    <input type="text" placeholder="Enter Email" name="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="email" required>
 
-    <label for="pass"><b>Password</b></label>
+    <label for="pass"><b>Password </b></label>
     <input type="password" placeholder="Enter Password" name="pass" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}" id="pass" required>
     <i class="far fa-eye" id="togglePassword" style="position: absolute; margin-top: -10%; margin-left: 87%; cursor: pointer;"></i>
 
@@ -58,7 +58,9 @@
 
 
 <script>
-const togglePassword = document.querySelector('#togglePassword');
+
+  //for show pass code
+  const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#pass');
  
   togglePassword.addEventListener('click', function (e) {
@@ -67,7 +69,25 @@ const togglePassword = document.querySelector('#togglePassword');
     pass.setAttribute('type', type);
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
-});
+  });
+  //end code for show pass
+
+
+
+  //for disable copy paste in input field
+  window.onload = () => {
+    //for email input copy paste off
+    const email = document.getElementById('email');
+    email.onpaste = e => e.preventDefault();
+    email.oncopy = e => e.preventDefault();
+
+    //for pass input copy paste off
+    const pass = document.getElementById('pass');
+    pass.onpaste = e => e.preventDefault();
+    pass.oncopy = e => e.preventDefault();
+  }
+  //end code for disable copy pase
+
 </script>
 </body>
 </html>

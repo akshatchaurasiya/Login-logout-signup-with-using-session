@@ -9,8 +9,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 </style>
 </head>
-<body oncontextmenu="return false" onload="cap()">
-  <form class="container" method="POST" name="myform" action="insert.php" autocomplete="off">
+<body oncontextmenu="return false">
+  <form class="container" method="POST" name="myform" action="insert.php" autocomplete="off" oncontextmenu="return false">
     
     <h1 class="signup">Signup</h1>
 
@@ -53,6 +53,9 @@
 
 
 <script type="text/javascript">
+
+  // start disable submit button code
+
   function disableSubmit() 
   {
     document.getElementById("submit").disabled = true;
@@ -68,10 +71,11 @@
       document.getElementById("submit").disabled = true;
     }
   }
+  //end disable submit button code
 
 
-
-const togglePassword = document.querySelector('#togglePassword');
+  //for show password code
+  const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#pass');
  
   togglePassword.addEventListener('click', function (e) {
@@ -80,8 +84,12 @@ const togglePassword = document.querySelector('#togglePassword');
     pass.setAttribute('type', type);
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
-});
+  });
+  //end show pass code
 
+
+
+//for captcha
 
 function cap()
     {
@@ -101,16 +109,17 @@ function cap()
       document.write(c);
       document.write(f);*/
 
-
-
       var sum=a+b+c+d+e+f;
 
       //document.write(sum);
 
       document.getElementById("capt").value=sum;
     }
+    //end captcha code...\
 
 
+
+    //for validate captcha code
     function valcap(){
       var str1=document.getElementById('capt').value;
       var str2=document.getElementById('textinput').value
@@ -127,6 +136,48 @@ function cap()
 
     }
 
+
+//for copy paste in input field and call captcha
+    window.onload = () => {
+
+      cap();  //for catpcha
+
+      //for name input copy paste off
+      const name = document.getElementById('name');
+      name.onpaste = e => e.preventDefault();
+      name.oncopy = e => e.preventDefault();
+
+
+      //for email input copy paste off
+      const email = document.getElementById('email');
+      email.onpaste = e => e.preventDefault();
+      email.oncopy = e => e.preventDefault();
+
+
+      //for pass input copy paste off
+      const pass = document.getElementById('pass');
+      pass.onpaste = e => e.preventDefault();
+      pass.oncopy = e => e.preventDefault();
+
+
+      //for cpass input copy paste off
+      const cpass = document.getElementById('cpass');
+      cpass.onpaste = e => e.preventDefault();
+      cpass.oncopy = e => e.preventDefault();
+
+
+      //for capt input copy paste off
+      const capt = document.getElementById('capt');
+      capt.onpaste = e => e.preventDefault();
+      capt.oncopy = e => e.preventDefault();
+
+
+      //for textinput input copy paste off
+      const textinput = document.getElementById('textinput');
+      textinput.onpaste = e => e.preventDefault();
+      textinput.oncopy = e => e.preventDefault();
+    }
+    //end disable copy paste code
 
 </script>
 </body>

@@ -177,4 +177,7 @@ a{
   font-family: 'Fredericka the Great', cursive;
   font-style: oblique;
   font-size: xx-large;
+  color: red;
+  /*text-decoration: line-through;*/
+  text-shadow: 2px 2px .999px blue ;
 }
